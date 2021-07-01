@@ -29,7 +29,6 @@
                         >;
                         sensor-bindings = <&inc_dec_cp C_AC_SCROLL_UP C_AC_SCROLL_DOWN>;
                 };
-
                 hotkeys_layer {
 // -----------------------------------------------------------------------------------------
 // | F6   | GALT 1 | GALT 2 |  {    |  }    | F2    |   | GSFT K | CTL ( | CTL ) | F14 | F11 | F15 |
@@ -44,7 +43,6 @@
                         >;
                         sensor-bindings = <&inc_dec_cp C_VOL_UP C_VOL_DN>;
                 };
-
                 text_layer {
 // -----------------------------------------------------------------------------------------
 // | G BSPC  | LG(Q   | LG(W) | ESC   | NUMBERS | LG(T) |   | LC(Y) | LG(LEFT) | UP        | LG(RIGHT) | ~ | NONE |
@@ -59,7 +57,6 @@
                         >;
                         sensor-bindings = <&inc_dec_cp RIGHT LEFT>;
                 };
-
                 select_layer {
 // -----------------------------------------------------------------------------------------
 // | BSPC |  Q  |  W  |  E  |  R  |  T  |   |  Y  |  U   |  I  |  O  |  P  | MINUS |
@@ -74,7 +71,6 @@
                         >;
                         sensor-bindings = <&inc_dec_cp C_AC_SCROLL_UP C_AC_SCROLL_DOWN>;
                 };
-
                 numbers_layer {
 // -----------------------------------------------------------------------------------------
 // | BSPC   |  Q  |  W  |  E  |  R  |  T  |   |  Y  |  U   |  I  |  O  |  P  | MINUS  |
@@ -89,7 +85,6 @@
                         >;
                         sensor-bindings = <&inc_dec_cp LC(PLUS) LC(MINUS)>;
                 };
-
                 symbols_layer {
 // -----------------------------------------------------------------------------------------
 // | F6   | GALT 1 | GALT 2 |  {   |  }   | F2    |   | GSFT K | CTL ( | CTL ) | F14 | F11 | F15 |
