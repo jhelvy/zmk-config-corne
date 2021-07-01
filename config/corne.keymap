@@ -24,7 +24,7 @@
    &kp RA(TAB) &kp Y &kp X &kp C &kp V &kp B   &kp N &kp M  &kp CMMA &kp DOT &kp FSLH &kp DQT
                    &kp LCTRL &kp LSHFT &trans   &mo RAISE &lt LOWER SPACE &kp LGUI
                         >;
-                        sensor-bindings = <&inc_dec_cp DOWN_ARROW UP_ARROW>;
+                        sensor-bindings = <&inc_dec_cp C_VOL_UP C_VOL_DN>;
                 };
                 lower_layer {
 // -----------------------------------------------------------------------------------------
