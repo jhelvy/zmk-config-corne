@@ -43,6 +43,20 @@
                         >;
                         sensor-bindings = <&inc_dec_cp C_VOL_UP C_VOL_DN>;
                 };
+                text_layer {
+// -----------------------------------------------------------------------------------------
+// | G BSPC | LG(Q)  | LG(W) | ESC   | NUMBERS | LG(T) |   | LC(Y) | LG(LEFT) | UP        | LG(RIGHT) | ~ | --  |
+// | LC TAB | SELECT | LG(S) | LG(C) | LG(V)   | LG(X) |   | DEL   | LEFT     | DOWN      | RIGHT     | ` | RET |
+// | F18    | LG(A)  | LG(D) | F1    | LG(Z)   | LG(Y) |   | BSPC  | LG(F)    | LG(LS(G)) | LG(G)     | \ | --  |
+//                           | LALT  | LGUI    |  --   |   | SPACE | RGUI     |    --     |
+                        bindings = <
+   &kp LG(BSPC) &kp LG(Q)  &kp LG(W) &kp ESC   &mo NUMBERS &kp LG(T)   &kp LC(Y) &kp LG(LEFT) &kp UP        &kp LG(RIGHT) &kp TILDE &none
+   &kp LC(TAB)  &mo SELECT &kp LG(S) &kp LG(C) &kp LG(V)   &kp LG(X)   &kp DEL   &kp LEFT     &kp DOWN      &kp RIGHT     &kp GRAVE &kp RET
+   &kp F18      &kp LG(A)  &kp LG(D) &kp F1    &kp LG(Z)   &kp LG(Y)   &kp BSPC  &kp LG(F)    &kp LG(LS(G)) &kp LG(G)     &kp BSLH  &none
+                                     &kp LALT  &kp LGUI    &none       &kp SPACE &kp RGUI     &none
+                        >;
+                        sensor-bindings = <&inc_dec_cp RIGHT LEFT>;
+                };
         };
 };
 
