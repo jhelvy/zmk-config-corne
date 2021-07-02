@@ -12,19 +12,17 @@
 
                 default_layer {
 // -----------------------------------------------------------------------------------------
-// | BSPC |  Q  |  W  |  E  |  R  |  T  |   |  Y  |  U   |  I  |  O  |  P  | MINUS |
-// | TAB  |  A  |  S  |  D  |  F  |  G  |   |  H  |  J   |  K  |  L  |  '  | RET   |
-// | SHFT |  Z  |  X  |  C  |  V  |  B  |   |  N  |  M   |  ,  |  .  |  /  | SHFT  |
-//               | GUI | SYMBOLS | TEXT |   | SPACE | HOTKEYS | CTRL |
+// |  TAB |  Q  |  W  |  E  |  R  |  T  |   |  Y  |  U   |  I  |  O  |  P  | BKSP |
+// | CTRL |  A  |  S  |  D  |  F  |  G  |   |  H  |  J   |  K  |  L  |  ;  |  '   |
+// | SHFT |  Z  |  X  |  C  |  V  |  B  |   |  N  |  M   |  ,  |  .  |  /  | SHFT |
+//                    | GUI | LWR | SPC |   | ENT | RSE  | ALT |
                         bindings = <
-   &kp BSPC &kp Q &kp W &kp E &kp R &kp T   &kp Y &kp U &kp I    &kp O   &kp P    &kp MINUS
-   &kp TAB  &kp A &kp S &kp D &kp F &kp G   &kp H &kp J &kp K    &kp L   &kp APOS &kp RET
-   &kp SHFT &kp Z &kp X &kp C &kp V &kp B   &kp N &kp M &kp CMMA &kp DOT &kp FSLH &kp SHFT
-            &kp LGUI &none &none   &kp SPACE &none &kp LCTRL
+   &kp ESC  &kp Q &kp W &kp E &kp R &kp T   &kp Z &kp U  &kp I    &kp O   &kp P    &kp BKSP
+   &mt LALT TAB &kp A &kp S &kp D &kp F &kp G   &kp H &kp J  &kp K    &kp L   &kp APOS &kp RET
+   &kp RA(TAB) &kp Y &kp X &kp C &kp V &kp B   &kp N &kp M  &kp CMMA &kp DOT &kp FSLH &kp DQT
+                   &kp LCTRL &kp LSHFT &trans   &none &kp SPACE &kp LGUI
                         >;
-                        sensor-bindings = <&inc_dec_cp C_AC_SCROLL_UP C_AC_SCROLL_DOWN>;
+                        sensor-bindings = <&inc_dec_cp DOWN_ARROW UP_ARROW>;
                 };
         };
 };
-
-
