@@ -5,6 +5,11 @@
 #include <dt-bindings/zmk/ext_power.h>
 #include <dt-bindings/zmk/outputs.h>
 #define DEFAULT 0
+#define HOTKEYS 1
+#define TEXT    2
+#define SELECT  3
+#define NUMBERS 4
+#define SYMBOLS 5
 
 / {
         keymap {
@@ -12,17 +17,20 @@
 
                 default_layer {
 // -----------------------------------------------------------------------------------------
-// |  TAB |  Q  |  W  |  E  |  R  |  T  |   |  Y  |  U   |  I  |  O  |  P  | BKSP |
-// | CTRL |  A  |  S  |  D  |  F  |  G  |   |  H  |  J   |  K  |  L  |  ;  |  '   |
-// | SHFT |  Z  |  X  |  C  |  V  |  B  |   |  N  |  M   |  ,  |  .  |  /  | SHFT |
-//                    | GUI | LWR | SPC |   | ENT | RSE  | ALT |
+// | BSPC |  Q  |  W  |  E  |  R  |  T  |   |  Y  |  U   |  I  |  O  |  P  | MINUS |
+// | TAB  |  A  |  S  |  D  |  F  |  G  |   |  H  |  J   |  K  |  L  |  '  | RET   |
+// | SHFT |  Z  |  X  |  C  |  V  |  B  |   |  N  |  M   |  ,  |  .  |  /  | SHFT  |
+//               | GUI | SYMBOLS | TEXT |   | SPACE | HOTKEYS | CTRL |
                         bindings = <
-   &kp ESC  &kp Q &kp W &kp E &kp R &kp T   &kp Z &kp U  &kp I    &kp O   &kp P    &kp BKSP
-   &mt LALT TAB &kp A &kp S &kp D &kp F &kp G   &kp H &kp J  &kp K    &kp L   &kp APOS &kp RET
-   &kp RA(TAB) &kp Y &kp X &kp C &kp V &kp B   &kp N &kp M  &kp CMMA &kp DOT &kp FSLH &kp DQT
-                   &kp LCTRL &kp LSHFT &trans   &none &kp SPACE &kp LGUI
+   &kp BSPC       &kp Q &kp W &kp E &kp R &kp T   &kp Y &kp U &kp I     &kp O   &kp P    &kp MINUS
+   &mt LCTRL TAB  &kp A &kp S &kp D &kp F &kp G   &kp H &kp J &kp K     &kp L   &kp APOS &kp RET
+   &mt LSHFT LPAR &kp Z &kp X &kp C &kp V &kp B   &kp N &kp M &kp COMMA &kp DOT &kp FSLH &mt RSHFT RPAR
+            &kp LGUI &mo SYMBOLS &mo TEXT   &kp SPACE &mo HOTKEYS &kp LCTRL
                         >;
                         sensor-bindings = <&inc_dec_cp DOWN_ARROW UP_ARROW>;
                 };
         };
 };
+
+
+
