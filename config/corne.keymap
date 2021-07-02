@@ -34,7 +34,7 @@
 // | F6 | GALT 1 | GALT 2 |  {    |  }    | F2    |   | GSFT K | CTL ( | CTL ) | F14 | F11 | F15 |
 // | F7 | GCTL A | GSFT 3 |  [    |  ]    | F9    |   |        | STAB  | TAB   | F19 | F12 | F16 |
 // | F8 |        | GSFT 4 | PG_UP | PG_DN | CTL U |   |        |       | ALT A | F20 | F13 | F17 |
-//                        | NONE  | LGUI  | LCTRL |   | SPACE  | NONE  | NONE  |
+//                        |  --   | LGUI  | LCTRL |   | SPACE  |  --   |  --   |
                         bindings = <
    &kp F6 &kp LG(LA(N1)) &kp LG(LA(N2)) &kp LBRC  &kp RBRC  &kp F2     &kp LG(LS(K)) &kp LC(LPAR) &kp LC(RPAR) &kp F14 &kp F11 &kp F15
    &kp F7 &kp LG(LC(A))  &kp LG(LS(N3)) &kp LBKT  &kp RBKT  &kp F9     &none         &kp LS(TAB)  &kp TAB      &kp F19 &kp F12 &kp F16
@@ -45,10 +45,10 @@
                 };
                 text_layer {
 // -----------------------------------------------------------------------------------------
-// | G BSPC | LG(Q   | LG(W) | ESC   | NUMBERS | LG(T) |   | LC(Y) | LG(LEFT) | UP        | LG(RIGHT) | ~ | NONE |
-// | LC TAB | SELECT | LG(S) | LG(C) | LG(V)   | LG(X) |   | DEL   | LEFT     | DOWN      | RIGHT     | ` | RET  |
-// | F18    | LG(A)  | LG(D) | F1    | LG(Z)   | LG(Y) |   | BSPC  | LG(F)    | LG(LS(G)) | LG(G)     | \ | NONE |
-//                           | LALT  | LGUI    | NONE  |   | SPACE | RGUI     | NONE |
+// | G BSPC | LG(Q   | LG(W) | ESC   | NUMBERS | LG(T) |   | LC(Y) | LG(LEFT) | UP        | LG(RIGHT) | ~ | --  |
+// | LC TAB | SELECT | LG(S) | LG(C) | LG(V)   | LG(X) |   | DEL   | LEFT     | DOWN      | RIGHT     | ` | RET |
+// | F18    | LG(A)  | LG(D) | F1    | LG(Z)   | LG(Y) |   | BSPC  | LG(F)    | LG(LS(G)) | LG(G)     | \ | --  |
+//                           | LALT  | LGUI    |  --   |   | SPACE | RGUI     |    --     |
                         bindings = <
    &kp LG(BSPC) &kp LG(Q)  &kp LG(W) &kp ESC   &mo NUMBERS &kp LG(T)   &kp LC(Y) &kp LG(LEFT) &kp UP        &kp LG(RIGHT) &kp TILDE &none
    &kp LC(TAB)  &mo SELECT &kp LG(S) &kp LG(C) &kp LG(V)   &kp LG(X)   &kp DEL   &kp LEFT     &kp DOWN      &kp RIGHT     &kp GRAVE &kp RET
@@ -59,37 +59,37 @@
                 };
                 select_layer {
 // -----------------------------------------------------------------------------------------
-// | BSPC |  Q  |  W  |  E  |  R  |  T  |   |  Y  |  U   |  I  |  O  |  P  | MINUS |
-// | TAB  |  A  |  S  |  D  |  F  |  G  |   |  H  |  J   |  K  |  L  |  '  | RET   |
-// | SHFT |  Z  |  X  |  C  |  V  |  B  |   |  N  |  M   |  ,  |  .  |  /  | SHFT  |
-//                    | GUI | SYMBOLS | TEXT |   | SPACE | HOTKEYS | CTRL |
+// | -- | -- | -- | -- | -- | -- |   | --    | LG(LS(LEFT)) | LS(UP)       | LG(LS(RIGHT)) | -- | -- |
+// | -- | -- | -- | -- | -- | -- |   | --    | LS(LEFT)     | LS(DOWN)     | LS(RIGHT)     | -- | -- |
+// | -- | -- | -- | -- | -- | -- |   | --    | LA(RET)      | LA(LS(LEFT)) | LA(LS(RIGHT)) | -- | -- |
+//                | -- | -- | -- |   | SPACE | LGUI         | -- |
                         bindings = <
-   &kp BSPC &kp Q &kp W &kp E &kp R &kp T   &kp Y &kp U &kp I &kp O &kp P &kp MINUS
-   &kp TAB  &kp A &kp S &kp D &kp F &kp G   &kp H &kp J &kp K &kp L &kp APOS &kp RET
-   &kp SHFT &kp Z &kp X &kp C &kp V &kp B   &kp N &kp M &kp CMMA &kp DOT &kp FSLH &kp SHFT
-                   &kp LGUI &mo SYMBOLS &mo TEXT &kp SPACE &mo HOTKEYS &kp CTRL
+   &none &none &none &none &none &none    &none     &kp LG(LS(LEFT)) &kp LS(UP)       &kp LG(LS(RIGHT)) &none &none
+   &none &none &none &none &none &none    &none     &kp LS(LEFT)     &kp LS(DOWN)     &kp LS(RIGHT)     &none &none
+   &none &none &none &none &none &none    &none     &kp LA(RET)      &kp LA(LS(LEFT)) &kp LA(LS(RIGHT)) &none &none
+                     &none &none &none    &kp SPACE &kp LGUI         &none
                         >;
                         sensor-bindings = <&inc_dec_cp C_AC_SCROLL_UP C_AC_SCROLL_DOWN>;
                 };
                 numbers_layer {
 // -----------------------------------------------------------------------------------------
-// | BSPC   |  Q  |  W  |  E  |  R  |  T  |   |  Y  |  U   |  I  |  O  |  P  | MINUS  |
-// | TAB    |  A  |  S  |  D  |  F  |  G  |   |  H  |  J   |  K  |  L  |  '  | RET    |
-// | SHFT ( |  Z  |  X  |  C  |  V  |  B  |   |  N  |  M   |  ,  |  .  |  /  | SHFT ) |
-//                    | LGUI | SYMBOLS | TEXT |   | SPACE | HOTKEYS | CTRL |
+// | -- | -- | -- | -- | -- | -- |   | + | 7 | 8 | 9 | , | = |
+// | -- | -- | -- | -- | -- | -- |   | - | 4 | 5 | 6 | : |  |
+// | -- | -- | -- | -- | -- | -- |   | 0 | 1 | 2 | 3 | / | -- |
+//                | -- | -- | -- |   | SPACE | KP_DOT | -- |
                         bindings = <
-   &kp BSPC &kp Q &kp W &kp E &kp R &kp T   &kp Y &kp U &kp I &kp O &kp P &kp MINUS
-   &kp TAB  &kp A &kp S &kp D &kp F &kp G   &kp H &kp J &kp K &kp L &kp APOS &kp RET
-   &mt LSHIFT LPAR &kp Z &kp X &kp C &kp V &kp B   &kp N &kp M &kp CMMA &kp DOT &kp FSLH &mt RSHIFT RPAR
-                   &kp LGUI &mo SYMBOLS &mo TEXT &kp SPACE &mo HOTKEYS &kp LCTRL
+   &none &none &none &none &none &none   &kp KP_PLUS  &kp KP_N7 &kp KP_N8 &kp KP_N9 &kp KP_COMMA  &kp KP_EQUAL
+   &none &none &none &none &none &none   &kp KP_MINUS &kp KP_N4 &kp KP_N5 &kp KP_N6 &kp COLON     &none
+   &none &none &none &none &none &none   &kp KP_N0    &kp KP_N1 &kp KP_N2 &kp KP_N3 &kp KP_DIVIDE &none
+                     &none &none &none   SPACE &kp KP_DOT &none
                         >;
                         sensor-bindings = <&inc_dec_cp LC(PLUS) LC(MINUS)>;
                 };
                 symbols_layer {
 // -----------------------------------------------------------------------------------------
-// | F6   | GALT 1 | GALT 2 |  {   |  }   | F2    |   | GSFT K | CTL ( | CTL ) | F14 | F11 | F15 |
-// | F7   | GCTL A | GSFT 3 |  [   |  ]   | F9    |   |        | STAB  | TAB   | F19 | F12 | F16 |
-// | F8   |        | GSFT 4 | PGUP | PGDN | CTL U |   |        |       | ALT A | F20 | F13 | F17 |
+// | -- | -- | -- | -- | -- | -- |   | -- | -- | -- | -- | -- | -- |
+// | -- | -- | -- | -- | -- | -- |   | -- | -- | -- | -- | -- | -- |
+// | -- | -- | -- | -- | -- | -- |   | -- | -- | -- | -- | -- | -- |
 //                    |   | LGUI | LCTRL |   | SPACE | HOTKEYS | CTRL |
                         bindings = <
    &kp BSPC &kp Q &kp W &kp E &kp R &kp T   &kp Y &kp U &kp I &kp O &kp P &kp MINUS
