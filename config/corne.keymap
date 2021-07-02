@@ -87,15 +87,15 @@
                 };
                 symbols_layer {
 // -----------------------------------------------------------------------------------------
-// | -- | -- | -- | -- | -- | -- |   | -- | -- | -- | -- | -- | -- |
-// | -- | -- | -- | -- | -- | -- |   | -- | -- | -- | -- | -- | -- |
-// | -- | -- | -- | -- | -- | -- |   | -- | -- | -- | -- | -- | -- |
-//                    |   | LGUI | LCTRL |   | SPACE | HOTKEYS | CTRL |
+// | -- | LG(1) | LG(2) | LG(3)       | LG(4)   | LG(5) |   | ;  | & | * | / | PIPE  |   _     |
+// | -- |  --   |  --   | LG(LS(TAB)) | LG(TAB) | #     |   | -- | $ | % | ^ |  :    | LG(RET) |
+// | -- |  --   |  --   |     --      |   --    | LG(B) |   | -- | ! | @ | # | LG(/) |   --    |
+//                      |   LGUI      |   --    |  --   |   | LG(LS(R)) | LG(LS(P))  | -- |
                         bindings = <
-   &kp BSPC &kp Q &kp W &kp E &kp R &kp T   &kp Y &kp U &kp I &kp O &kp P &kp MINUS
-   &kp TAB  &kp A &kp S &kp D &kp F &kp G   &kp H &kp J &kp K &kp L &kp APOS &kp RET
-   &kp SHFT &kp Z &kp X &kp C &kp V &kp B   &kp N &kp M &kp CMMA &kp DOT &kp FSLH &kp SHFT
-                   &kp LGUI &mo SYMBOLS &mo TEXT &kp SPACE &mo HOTKEYS &kp CTRL
+   &none &kp LG(1) &kp LG(2) &kp LG(3)       &kp LG(4)   &kp LG(5)   &kp SEMI &kp AMPS   &kp ASTRK   &kp FSLH  &kp PIPE     &kp UNDER
+   &none &none     &none     &kp LG(LS(TAB)) &kp LG(TAB) &kp HASH    &none    &kp DOLLAR &kp PERCENT &kp CARET &kp COLON    &kp LG(RET)
+   &none &none     &none     &none           &none       &kp LG(B)   &none    &kp EXCL   &kp AT_SIGN &kp HASH  &kp LG(FSLH) &none
+                             &kp LGUI        &none       &none       &kp LG(LS(R)) &kp LG(LS(P))  &none
                         >;
                         sensor-bindings = <&inc_dec_cp C_AC_SCROLL_UP C_AC_SCROLL_DOWN>;
                 };
