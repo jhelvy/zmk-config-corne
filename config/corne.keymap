@@ -87,15 +87,15 @@
                 };
                 symbols_layer {
 // -----------------------------------------------------------------------------------------
-// | -- | LG(1) | LG(2) | LG(3)       | LG(4)   | LG(5) |   | ;  | & | * | / | PIPE  |   _     |
-// | -- |  --   |  --   | LG(LS(TAB)) | LG(TAB) | #     |   | -- | $ | % | ^ |  :    | LG(RET) |
-// | -- |  --   |  --   |     --      |   --    | LG(B) |   | -- | ! | @ | # | LG(/) |   --    |
-//                      |   LGUI      |   --    |  --   |   | LG(LS(R)) | LG(LS(P))  | -- |
+// | --     | LG(1) | LG(2) | LG(3)       | LG(4)   | LG(5) |   | ;  | & | * | / | PIPE  |   _     |
+// | --     |  --   |  --   | LG(LS(TAB)) | LG(TAB) | #     |   | -- | $ | % | ^ |  :    | LG(RET) |
+// | BT_CLR |  --   |  --   |     --      |   --    | LG(B) |   | -- | ! | @ | # | LG(/) |   --    |
+//                                        | LGUI  | -- | -- |   | LG(LS(R)) | LG(LS(P))  | -- |
                         bindings = <
-   &none &kp LG(1) &kp LG(2) &kp LG(3)       &kp LG(4)   &kp LG(5)   &kp SEMI &kp AMPS   &kp ASTRK   &kp FSLH  &kp PIPE     &kp UNDER
-   &none &none     &none     &kp LG(LS(TAB)) &kp LG(TAB) &kp HASH    &none    &kp DOLLAR &kp PERCENT &kp CARET &kp COLON    &kp LG(RET)
-   &none &none     &none     &none           &none       &kp LG(B)   &none    &kp EXCL   &kp AT_SIGN &kp HASH  &kp LG(FSLH) &none
-                             &kp LGUI        &none       &none       &kp LG(LS(R)) &kp LG(LS(P))  &none
+   &none      &kp LG(1) &kp LG(2) &kp LG(3)       &kp LG(4)   &kp LG(5)   &kp SEMI &kp AMPS   &kp ASTRK   &kp FSLH  &kp PIPE     &kp UNDER
+   &none      &none     &none     &kp LG(LS(TAB)) &kp LG(TAB) &kp HASH    &none    &kp DOLLAR &kp PERCENT &kp CARET &kp COLON    &kp LG(RET)
+   &bt BT_CLR &none     &none     &none           &none       &kp LG(B)   &none    &kp EXCL   &kp AT_SIGN &kp HASH  &kp LG(FSLH) &none
+                                                   &kp LGUI &none &none   &kp LG(LS(R)) &kp LG(LS(P)) &none
                         >;
                         sensor-bindings = <&inc_dec_cp C_AC_SCROLL_UP C_AC_SCROLL_DOWN>;
                 };
