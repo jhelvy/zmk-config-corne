@@ -1,15 +1,15 @@
 
-if SHIELD_CORNE_LEFT
-
-config ZMK_KEYBOARD_NAME
-	default "Corne Left"
-
-endif
-
 if SHIELD_CORNE_RIGHT
 
 config ZMK_KEYBOARD_NAME
 	default "Corne Right"
+
+endif
+
+if SHIELD_CORNE_LEFT
+
+config ZMK_KEYBOARD_NAME
+	default "Corne Left"
 
 endif
 
