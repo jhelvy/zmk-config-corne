@@ -41,7 +41,7 @@ jobs:
       - name: Corne Left Kconfig file
         run: cat build/zephyr/.config | grep -v "^#" | grep -v "^$"
       - name: Rename zmk.uf2
-        run: cp build/zephyr/zmk.uf2 corne_left.uf2
+        run: cp build/zephyr/zmk.uf2 corne_left_nice_nano.uf2
       - name: Archive (Corne Left)
         uses: actions/upload-artifact@v2
         with:
@@ -55,7 +55,7 @@ jobs:
       - name: Corne Right Kconfig file
         run: cat build/zephyr/.config | grep -v "^#" | grep -v "^$"
       - name: Rename zmk.uf2
-        run: cp build/zephyr/zmk.uf2 corne_right.uf2
+        run: cp build/zephyr/zmk.uf2 corne_right_nice_nano.uf2
       - name: Archive (Corne Right)
         uses: actions/upload-artifact@v2
         with:
