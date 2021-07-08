@@ -46,7 +46,7 @@ jobs:
         uses: actions/upload-artifact@v2
         with:
           name: firmware
-          path: corne_left.uf2
+          path: corne_left_nice_nano.uf2
       - name: West Build (Corne Right)
         run: west build --pristine -s zmk/app -b nice_nano -- -DSHIELD=corne_right -DZMK_CONFIG="${GITHUB_WORKSPACE}/config"
       - name: Corne DTS File
@@ -60,4 +60,4 @@ jobs:
         uses: actions/upload-artifact@v2
         with:
           name: firmware
-          path: corne_right.uf2
+          path: corne_right_nice_nano.uf2
