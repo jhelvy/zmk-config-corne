@@ -26,7 +26,7 @@
 // | SHFT ( |  Z  |  X  |  C  |  V  |  B  |   |  N  |  M   |  ,  |  .  |  /  | SHFT ) |
 //                 | GUI |  SYMBOLS | NAV |   | SPACE | HOTKEYS | CTRL |
                         bindings = <
-   &kp BSPC       &kp Q &kp W &kp E &kp R &kp T   &kp Y &kp U &kp I     &kp O   &kp P    &kp MINUS
+   &kp BSPC       &mt Q LS(Q) &kp W &kp E &kp R &kp T   &kp Y &kp U &kp I     &kp O   &kp P    &kp MINUS
    &mt LCTRL TAB  &kp A &kp S &kp D &kp F &kp G   &kp H &kp J &kp K     &kp L   &kp APOS &kp RET
    &mt LSHFT LPAR &kp Z &kp X &kp C &kp V &kp B   &kp N &kp M &kp COMMA &kp DOT &kp FSLH &mt RSHFT RPAR
                    &kp LGUI &mo SYMBOLS &mo NAV   &kp SPACE &mo HOTKEYS &kp LCTRL
@@ -35,12 +35,12 @@
                 };
                 hotkeys_layer {
 // -----------------------------------------------------------------------------------------
-// | F6 | GALT 1 | GALT 2 |  {    |  }    | F2    |   | GSFT K | CTL ( | CTL ) | F14 | F11 | F15 |
+// | F6 | GALT 1 | GALT 2 |  {    |  }    | F2    |   | GSFT K | CTL 9 | CTL 0 | F14 | F11 | F15 |
 // | F7 | GCTL A | GSFT 3 |  [    |  ]    | F9    |   |        | STAB  | TAB   | F19 | F12 | F16 |
 // | F8 |        | GSFT 4 | PG_UP | PG_DN | CTL U |   |        |       | ALT A | F20 | F13 | F17 |
 //                        |  --   | LGUI  | LCTRL |   | SPACE  |  --   |  --   |
                         bindings = <
-   &kp F6 &kp LG(LA(N1)) &kp LG(LA(N2)) &kp LBRC  &kp RBRC  &kp F2     &kp LG(LS(K)) &kp LC(LPAR) &kp LC(RPAR) &kp F14 &kp F11 &kp F15
+   &kp F6 &kp LG(LA(N1)) &kp LG(LA(N2)) &kp LBRC  &kp RBRC  &kp F2     &kp LG(LS(K)) &kp LC(N9) &kp LC(N0) &kp F14 &kp F11 &kp F15
    &kp F7 &kp LG(LC(A))  &kp LG(LS(N3)) &kp LBKT  &kp RBKT  &kp F9     &none         &kp LS(TAB)  &kp TAB      &kp F19 &kp F12 &kp F16
    &kp F8 &none          &kp LG(LS(N4)) &kp PG_UP &kp PG_DN &kp LC(U)  &none         &none        &kp LA(A)    &kp F20 &kp F13 &kp F17
                                         &none     &kp LGUI  &kp LCTRL  &kp SPACE     &none        &none
