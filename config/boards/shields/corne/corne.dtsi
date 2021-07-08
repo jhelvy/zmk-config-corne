@@ -58,7 +58,19 @@ RC(2,1) RC(2,2) RC(2,3) RC(2,4) RC(2,5)  RC(2,6) RC(2,7) RC(2,8) RC(2,9) RC(2,10
 		
 	};
 
-	// TODO: per-key RGB node(s)?
+	right_encoder: encoder_right {
+		compatible = "alps,ec11";
+		label = "RIGHT_ENCODER";
+		a-gpios = <&pro_micro_d 9 (GPIO_ACTIVE_HIGH | GPIO_PULL_UP)>;
+		b-gpios = <&pro_micro_d 10 (GPIO_ACTIVE_HIGH | GPIO_PULL_UP)>;
+		resolution = <3>;
+    	};
+
+    	sensors {
+        	compatible = "zmk,keymap-sensors";
+        	sensors = <&right_encoder>;
+   	};
+
 };
 
 &pro_micro_i2c {

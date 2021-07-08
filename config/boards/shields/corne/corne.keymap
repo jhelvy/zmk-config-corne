@@ -8,49 +8,100 @@
 #include <dt-bindings/zmk/keys.h>
 #include <dt-bindings/zmk/bt.h>
 
+#define DEFAULT 0
+#define HOTKEYS 1
+#define NAV     2
+#define SELECT  3
+#define NUMBERS 4
+#define SYMBOLS 5
+
 / {
         keymap {
                 compatible = "zmk,keymap";
 
                 default_layer {
 // -----------------------------------------------------------------------------------------
-// |  TAB |  Q  |  W  |  E  |  R  |  T  |   |  Y  |  U   |  I  |  O  |  P  | BKSP |
-// | CTRL |  A  |  S  |  D  |  F  |  G  |   |  H  |  J   |  K  |  L  |  ;  |  '   |
-// | SHFT |  Z  |  X  |  C  |  V  |  B  |   |  N  |  M   |  ,  |  .  |  /  | SHFT |
-//                    | GUI | LWR | SPC |   | ENT | RSE  | ALT |
+// | BSPC   |  Q  |  W  |  E  |  R  |  T  |   |  Y  |  U   |  I  |  O  |  P  | MINUS  |
+// | TAB    |  A  |  S  |  D  |  F  |  G  |   |  H  |  J   |  K  |  L  |  '  | RET    |
+// | SHFT ( |  Z  |  X  |  C  |  V  |  B  |   |  N  |  M   |  ,  |  .  |  /  | SHFT ) |
+//                 | GUI |  SYMBOLS | NAV |   | SPACE | HOTKEYS | CTRL |
                         bindings = <
-   &kp TAB   &kp Q &kp W &kp E &kp R &kp T   &kp Y &kp U  &kp I     &kp O   &kp P    &kp BSPC
-   &kp LCTRL &kp A &kp S &kp D &kp F &kp G   &kp H &kp J  &kp K     &kp L   &kp SEMI &kp SQT
-   &kp LSHFT &kp Z &kp X &kp C &kp V &kp B   &kp N &kp M  &kp COMMA &kp DOT &kp FSLH &kp RSHFT
-                  &kp LGUI &mo 1 &kp SPACE   &kp RET &mo 2 &kp RALT
+   &kp BSPC       &kp Q &kp W &kp E &kp R &kp T   &kp Y &kp U &kp I     &kp O   &kp P    &kp MINUS
+   &mt LCTRL TAB  &kp A &kp S &kp D &kp F &kp G   &kp H &kp J &kp K     &kp L   &kp APOS &kp RET
+   &mt LSHFT LPAR &kp Z &kp X &kp C &kp V &kp B   &kp N &kp M &kp COMMA &kp DOT &kp FSLH &mt RSHFT RPAR
+                   &kp LGUI &mo SYMBOLS &mo NAV   &kp SPACE &mo HOTKEYS &kp LCTRL
                         >;
+                        sensor-bindings = <&inc_dec_cp DOWN_ARROW UP_ARROW>;
                 };
-                lower_layer {
+                hotkeys_layer {
 // -----------------------------------------------------------------------------------------
-// |  ESC |  1  |  2  |  3  |  4  |  5  |   |  6  |  7  |  8  |  9  |  0  | BKSP |
-// | BTCLR| BT1 | BT2 | BT3 | BT4 | BT5 |   | LFT | DWN |  UP | RGT |     |      |
-// | SHFT |     |     |     |     |     |   |     |     |     |     |     |      |
-//                    | GUI |     | SPC |   | ENT |     | ALT |
+// | F6 | GALT 1 | GALT 2 |  {    |  }    | F2    |   | GSFT K | CTL ( | CTL ) | F14 | F11 | F15 |
+// | F7 | GCTL A | GSFT 3 |  [    |  ]    | F9    |   |        | STAB  | TAB   | F19 | F12 | F16 |
+// | F8 |        | GSFT 4 | PG_UP | PG_DN | CTL U |   |        |       | ALT A | F20 | F13 | F17 |
+//                        |  --   | LGUI  | LCTRL |   | SPACE  |  --   |  --   |
                         bindings = <
-   &kp ESC    &kp N1       &kp N2       &kp N3       &kp N4       &kp N5            &kp N6   &kp N7   &kp N8 &kp N9    &kp N0 &kp BSPC
-   &bt BT_CLR &bt BT_SEL 0 &bt BT_SEL 1 &bt BT_SEL 2 &bt BT_SEL 3 &bt BT_SEL 4      &kp LEFT &kp DOWN &kp UP &kp RIGHT &trans &trans
-   &kp LSHFT  &trans       &trans       &trans       &trans       &trans            &trans   &trans   &trans &trans    &trans &trans
-                                        &kp LGUI     &trans       &kp SPACE         &kp RET &trans &kp RALT
+   &kp F6 &kp LG(LA(N1)) &kp LG(LA(N2)) &kp LBRC  &kp RBRC  &kp F2     &kp LG(LS(K)) &kp LC(LPAR) &kp LC(RPAR) &kp F14 &kp F11 &kp F15
+   &kp F7 &kp LG(LC(A))  &kp LG(LS(N3)) &kp LBKT  &kp RBKT  &kp F9     &none         &kp LS(TAB)  &kp TAB      &kp F19 &kp F12 &kp F16
+   &kp F8 &none          &kp LG(LS(N4)) &kp PG_UP &kp PG_DN &kp LC(U)  &none         &none        &kp LA(A)    &kp F20 &kp F13 &kp F17
+                                        &none     &kp LGUI  &kp LCTRL  &kp SPACE     &none        &none
                         >;
+                        sensor-bindings = <&inc_dec_cp C_VOL_UP C_VOL_DN>;
                 };
-
-                raise_layer {
+                nav_layer {
 // -----------------------------------------------------------------------------------------
-// |  ESC |  !  |  @  |  #  |  $  |  %  |   |  ^  |  &  |  *  |  (  |  )  | BKSP |
-// | CTRL |     |     |     |     |     |   |  -  |  =  |  {  |  }  | "|" |  `   |
-// | SHFT |     |     |     |     |     |   |  _  |  +  |  [  |  ]  |  \  |  ~   | // TODO: Fix this row when &mkp is committed
-//                    | GUI |     | SPC |   | ENT |     | ALT |
+// | G BSPC | LG(Q)  | LG(W) | ESC   | NUMBERS | LG(T) |   | LC(Y) | LG(LEFT) | UP        | LG(RIGHT) | ~ | --  |
+// | LC TAB | SELECT | LG(S) | LG(C) | LG(V)   | LG(X) |   | DEL   | LEFT     | DOWN      | RIGHT     | ` | RET |
+// | F18    | LG(A)  | LG(D) | F1    | LG(Z)   | LG(Y) |   | BSPC  | LG(F)    | LG(LS(G)) | LG(G)     | \ | --  |
+//                           | LALT  | LGUI    |  --   |   | SPACE | RGUI     |    --     |
                         bindings = <
-   &kp  ESC  &kp EXCL  &kp AT  &kp HASH  &kp DLLR  &kp PRCNT   &kp CARET &kp AMPS  &kp KP_MULTIPLY &kp LPAR &kp RPAR &kp BSPC
-   &kp LCTRL &trans    &trans  &trans    &trans    &trans      &kp MINUS &kp EQUAL &kp LBKT        &kp RBKT &kp PIPE &kp GRAVE
-   &kp LSHFT &trans    &trans  &trans    &trans    &trans      &trans    &trans    &trans          &trans   &kp BSLH &kp TILDE
-                                   &kp LGUI &trans &kp SPACE   &kp RET &trans &kp RALT
+   &kp LG(BSPC) &kp LG(Q)  &kp LG(W) &kp ESC   &mo NUMBERS &kp LG(T)   &kp LC(Y) &kp LG(LEFT) &kp UP        &kp LG(RIGHT) &kp TILDE &none
+   &kp LC(TAB)  &mo SELECT &kp LG(S) &kp LG(C) &kp LG(V)   &kp LG(X)   &kp DEL   &kp LEFT     &kp DOWN      &kp RIGHT     &kp GRAVE &kp RET
+   &kp F18      &kp LG(A)  &kp LG(D) &kp F1    &kp LG(Z)   &kp LG(Y)   &kp BSPC  &kp LG(F)    &kp LG(LS(G)) &kp LG(G)     &kp BSLH  &none
+                                     &kp LALT  &kp LGUI    &none       &kp SPACE &kp RGUI     &none
                         >;
+                        sensor-bindings = <&inc_dec_cp RIGHT LEFT>;
+                };
+                select_layer {
+// -----------------------------------------------------------------------------------------
+// | -- | -- | -- | -- | -- | -- |   | --    | LG(LS(LEFT)) | LS(UP)       | LG(LS(RIGHT)) | -- | -- |
+// | -- | -- | -- | -- | -- | -- |   | --    | LS(LEFT)     | LS(DOWN)     | LS(RIGHT)     | -- | -- |
+// | -- | -- | -- | -- | -- | -- |   | --    | LA(RET)      | LA(LS(LEFT)) | LA(LS(RIGHT)) | -- | -- |
+//                | -- | -- | -- |   | SPACE | LGUI         | -- |
+                        bindings = <
+   &none &none &none &none &none &none    &none     &kp LG(LS(LEFT)) &kp LS(UP)       &kp LG(LS(RIGHT)) &none &none
+   &none &none &none &none &none &none    &none     &kp LS(LEFT)     &kp LS(DOWN)     &kp LS(RIGHT)     &none &none
+   &none &none &none &none &none &none    &none     &kp LA(RET)      &kp LA(LS(LEFT)) &kp LA(LS(RIGHT)) &none &none
+                     &none &none &none    &kp SPACE &kp LGUI         &none
+                        >;
+                        sensor-bindings = <&inc_dec_cp C_AC_SCROLL_UP C_AC_SCROLL_DOWN>;
+                };
+                numbers_layer {
+// -----------------------------------------------------------------------------------------
+// | -- | -- | -- | -- | -- | -- |   | + | 7 | 8 | 9 | , | = |
+// | -- | -- | -- | -- | -- | -- |   | - | 4 | 5 | 6 | : |  |
+// | -- | -- | -- | -- | -- | -- |   | 0 | 1 | 2 | 3 | / | -- |
+//                | -- | -- | -- |   | SPACE | KP_DOT | -- |
+                        bindings = <
+   &none &none &none &none &none &none   &kp KP_PLUS  &kp KP_N7  &kp KP_N8 &kp KP_N9 &kp KP_COMMA  &kp KP_EQUAL
+   &none &none &none &none &none &none   &kp KP_MINUS &kp KP_N4  &kp KP_N5 &kp KP_N6 &kp COLON     &none
+   &none &none &none &none &none &none   &kp KP_N0    &kp KP_N1  &kp KP_N2 &kp KP_N3 &kp KP_DIVIDE &none
+                     &none &none &none   &kp SPACE    &kp KP_DOT &none
+                        >;
+                        sensor-bindings = <&inc_dec_cp LC(PLUS) LC(MINUS)>;
+                };
+                symbols_layer {
+// -----------------------------------------------------------------------------------------
+// | --     | LG(1) | LG(2) | LG(3)       | LG(4)   | LG(5) |   | ;  | & | * | / | PIPE  |   _     |
+// | --     |  --   |  --   | LG(LS(TAB)) | LG(TAB) | #     |   | -- | $ | % | ^ |  :    | LG(RET) |
+// | BT_CLR |  --   |  --   |     --      |   --    | LG(B) |   | -- | ! | @ | # | LG(/) |   --    |
+//                                        | LGUI  | -- | -- |   | LG(LS(R)) | LG(LS(P))  | -- |
+                        bindings = <
+   &none      &kp LG(N1) &kp LG(N2) &kp LG(N3)       &kp LG(N4)   &kp LG(N5)   &kp SEMI &kp AMPS   &kp ASTRK   &kp FSLH  &kp PIPE     &kp UNDER
+   &none      &none      &none      &kp LG(LS(TAB))  &kp LG(TAB)  &kp HASH     &none    &kp DOLLAR &kp PERCENT &kp CARET &kp COLON    &kp LG(RET)
+   &bt BT_CLR &none      &none      &none            &none        &kp LG(B)    &none    &kp EXCL   &kp AT_SIGN &kp HASH  &kp LG(FSLH) &none
+                                                       &kp LGUI &none &none    &kp LG(LS(R)) &kp LG(LS(P)) &none
+                        >;
+                        sensor-bindings = <&inc_dec_cp C_AC_SCROLL_UP C_AC_SCROLL_DOWN>;
                 };
         };
 };
