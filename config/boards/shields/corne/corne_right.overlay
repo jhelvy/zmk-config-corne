@@ -4,7 +4,11 @@
  * SPDX-License-Identifier: MIT
  */
 
-#include "jcorne.dtsi"
+#include "corne.dtsi"
+
+&default_transform {
+	col-offset = <6>;
+};
 
 &kscan0 {
 	col-gpios
@@ -15,8 +19,4 @@
 		, <&pro_micro_a  2 GPIO_ACTIVE_HIGH>
 		, <&pro_micro_a  3 GPIO_ACTIVE_HIGH>
 		;
-};
-
-&right_encoder {
-    status = "okay";
 };
