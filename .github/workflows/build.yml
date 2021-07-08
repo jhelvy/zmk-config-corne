@@ -41,12 +41,12 @@ jobs:
       - name: jCorne Left Kconfig file
         run: cat build/zephyr/.config | grep -v "^#" | grep -v "^$"
       - name: Rename zmk.uf2
-        run: cp build/zephyr/zmk.uf2 jcorne_left_nice_nano.uf2
+        run: cp build/zephyr/zmk.uf2 jcorne_left.uf2
       - name: Archive (jCorne Left)
         uses: actions/upload-artifact@v2
         with:
           name: firmware
-          path: jcorne_left_nice_nano.uf2
+          path: jcorne_left.uf2
       - name: West Build (jCorne Right)
         run: west build --pristine -s zmk/app -b nice_nano -- -DSHIELD=jcorne_right -DZMK_CONFIG="${GITHUB_WORKSPACE}/config"
       - name: jCorne DTS File
@@ -55,9 +55,9 @@ jobs:
       - name: jCorne Right Kconfig file
         run: cat build/zephyr/.config | grep -v "^#" | grep -v "^$"
       - name: Rename zmk.uf2
-        run: cp build/zephyr/zmk.uf2 jcorne_right_nice_nano.uf2
+        run: cp build/zephyr/zmk.uf2 jcorne_right.uf2
       - name: Archive (jCorne Right)
         uses: actions/upload-artifact@v2
         with:
           name: firmware
-          path: jcorne_right_nice_nano.uf2
+          path: jcorne_right.uf2
