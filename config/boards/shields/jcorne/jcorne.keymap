@@ -38,9 +38,9 @@
 // | SHFT (   |  Z  |  X  |  C  |  V  |  B  |   |  N  |  M   |  ,  |  .  |  /  | SHFT ) |
 //                  | GUI  |  SYMBOLS | NAV |   | SPACE | HOTKEYS | CMD SFT A |
                         bindings = <
-   &mt LALT BSPC  &as Q &as W &as E &as R &as T   &as Y &as U &as I     &as O   &as P    &as MINUS
-   &mt LCTRL TAB  &as A &as S &as D &as F &as G   &as H &as J &as K     &as L   &as APOS &kp RET
-   &mt LSHFT LPAR &as Z &as X &as C &as V &as B   &as N &as M &as COMMA &as DOT &as FSLH &mt RSHFT RPAR
+   &mt LALT BSPC  &as LS(Q) Q &as LS(W) W &as LS(E) E &as LS(R) R &as LS(T) T   &as LS(Y) Y &as LS(U) U &as LS(I) I &as LS(O) O &as LS(P) P &as LS(MINUS) MINUS
+   &mt LCTRL TAB  &as LS(A) A &as LS(S) S &as LS(D) D &as LS(F) F &as LS(G) G   &as LS(H) H &as LS(J) J &as LS(K) K &as LS(L) L &as LS(APOS) APOS &kp RET
+   &mt LSHFT LPAR &as LS(Z) Z &as LS(X) X &as LS(C) C &as LS(V) V &as LS(B) B   &as LS(N) N &as LS(M) M &as LS(COMMA) COMMA &as LS(DOT) DOT &as LS(FSLH) FSLH &mt RSHFT RPAR
                    &kp LGUI &mo SYMBOLS &mo NAV   &kp SPACE &mo HOTKEYS &kp LG(LS(A))
                         >;
                         sensor-bindings = <&inc_dec_cp DOWN_ARROW UP_ARROW>;
